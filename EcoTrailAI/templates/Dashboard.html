@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoTrail AI - Dashboard</title>
+
+  <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
+</head>
+
+<body class="dashboard-page">
+  
+
+  <div class="dashboard-container">
+
+    
+    <div class="sidebar">
+      <div class="logo"><img src="{{url_for('static',filename='image/logo.jpeg')}}" alt="EcoTrail Logo"><h2>EcoTrail AI</h2>
+    </div>
+        
+      
+      <ul class="menu">
+      <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/transport">Transport 🚗</a></li>
+        <li><a href="/food-page">Food 🍔</a></li>
+        <li><a href="/electricity">Energy 💡</a></li>
+        <li><a href="/history">History 📜</a></li>
+      </ul>
+
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+  
+    <div class="main-content">
+
+      <div class="header">
+        <h2>Dashboard</h2>
+        <p>Track your carbon footprint and reduce emissions 🌍</p>
+      </div>
+
+    
+      <div class="cards">
+
+        <div class="card">
+          <h3>Total CO₂</h3>
+          <h1 id="totalCo2">0 kg</h1>
+          <p>This month</p>
+        </div>
+
+        <div class="card">
+          <h3>Vehicle CO₂</h3>
+          <h1 id="vehicleCo2">0 kg</h1>
+          <p>Transport</p>
+        </div>
+
+        <div class="card">
+          <h3>Food CO₂</h3>
+          <h1 id="foodCo2">0 kg</h1>
+          <p>Diet</p>
+        </div>
+
+        <div class="card">
+          <h3>Electricity CO₂</h3>
+          <h1 id="electricityCo2">0 kg</h1>
+          <p>Energy</p>
+        </div>
+
+      </div>
+
+     
+      <div class="charts">
+
+        <div class="chart-box">
+          <h3>Pie Chart (Category Breakdown)</h3>
+          <canvas id="pieChart"></canvas>
+        </div>
+
+        <div class="chart-box">
+          <h3>Bar Chart (Comparison)</h3>
+          <canvas id="barChart"></canvas>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+<script src="{{url_for('static',filename='dash.js')}}"></script>
+<script> function logout() {
+  alert('Logged out successfully 🍀🍃!');
+  window.location.href = '/';
+}
+</script>
+
+</body>
+</html>

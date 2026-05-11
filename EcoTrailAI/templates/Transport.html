@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transport Calculator</title>
+
+  <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+
+  <div class="dashboard-container">
+
+    
+    <div class="sidebar">
+      <div class="logo">
+        <img src="{{url_for('static',filename='image/logo.jpeg')}}" alt="logo">
+        <h2>EcoTrail AI</h2>
+      </div>
+
+      <ul class="menu">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li class="active"><a href="/transport">Transport 🚗</a></li>
+        <li><a href="/food-page">Food 🍔</a></li>
+        <li><a href="/electricity">Energy 💡</a></li>
+        <li><a href="/history">History 📜</a></li>
+      </ul>
+
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    
+    <div class="main-content">
+
+      <div class="header">
+        <h1>Transport Carbon Calculator</h1>
+        <p>Enter vehicle details to predict CO₂ emissions 🌍</p>
+      </div>
+
+      
+      <div class="transport-form-box">
+        <form id="transportForm">
+
+          <label>Vehicle Type</label>
+          <select id="vehicleType" required>
+            <option value="Car">Car</option>
+            <option value="Truck">Truck</option>
+            <option value="Motorcycle">Motorcycle</option>
+            <option value="Bus">Bus</option>
+            <option value="Auto/Rikshaw">Auto/Rikshaw</option>
+          </select>
+
+          <label>Engine Size (L)</label>
+          <input type="number" step="0.1" id="engineSize" required />
+
+          <label>Cylinders</label>
+          <input type="number" id="cylinders" required />
+
+          <label>Fuel Type</label>
+          <select id="fuelType" required>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="CNG">CNG</option>
+            <option value="Ethanol">Ethanol</option>
+          </select>
+
+          <label>Fuel Consumption City</label>
+          <input type="number" step="0.1" id="fuelCity" required />
+
+          <label>Fuel Consumption Highway</label>
+          <input type="number" step="0.1" id="fuelHwy" required />
+
+          <label>Fuel Consumption Combined</label>
+          <input type="number" step="0.1" id="fuelComb" required />
+
+          <button type="submit"class="calc-btn">Calculate CO₂</button>
+          <p id="result"></p>
+
+        </form>
+        <div class="other-gases-box">
+          <h3>Other Harmful Gases</h3>
+          <p>CO: <span id="coGas">0 kg</span></p>
+          <p>NOx:<span id ="noxGas">0 kg</span></p>
+          <p>PM:<span id="pmGas">0 kg</span></p>
+        </div>
+       
+      </div>
+
+      
+      <div class="prediction-card">
+        <h2>Predicted CO₂ Emission</h2>
+        <h1 id="predictedCo2">0 kg</h1>
+
+        <h3>Other Harmful Gases</h3>
+        <p id="otherGases">0 g</p>
+      </div>
+
+      
+      <div class="status-card" id="statusCard">
+        <h2>Emission Status</h2>
+        <p id="emissionStatus">N/A</p>
+        <div class="tips-box">
+          <h4>Tips:</h4>
+          <ul id="tipsList">
+            <li>Fill vehicle detalis to get tips </li>
+          </ul>
+        </div>
+      </div>
+
+     
+
+    </div>
+  </div>
+
+  <script src="{{url_for('static',filename='transport.js')}}"></script>
+
+  <script>
+    function logout() {
+      alert("Logged out successfully 🍀🍃!");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

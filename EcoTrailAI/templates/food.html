@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Carbon Calculator</title>
+
+  <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+</head>
+
+<body>
+
+  <div class="dashboard-container">
+
+    
+    <div class="sidebar">
+      <div class="logo">
+        <img src="{{url_for('static',filename='image/logo.jpeg')}}">
+        <h2>EcoTrail AI</h2>
+      </div>
+
+      <ul class="menu">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/transport">Transport 🚗</a></li>
+        <li class="active"><a href="/food-page">Food 🍔</a></li>
+        <li><a href="/electricity">Energy 💡</a></li>
+        <li><a href="/history">History 📜</a></li>
+      </ul>
+
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    
+    <div class="main-content">
+
+      <div class="header">
+        <h1>Food Carbon Calculator</h1>
+        <p>Select your food type to calculate CO₂ emission 🍽️</p>
+      </div>
+
+      <div class="transport-form-box">
+        <form id="foodForm">
+
+          <label>Food Type</label>
+          <select id="foodType" required>
+            <option value="veg">Vegetarian 🥗</option>
+            <option value="nonveg">Non-Vegetarian 🍗</option>
+            <option value="dairy">Dairy 🥛</option>
+            <option value="fastFood">Fast Food 🍔</option>
+          </select>
+
+          <label>Quantity (Meals per day)</label>
+          <input type="number" id="foodQuantity" min="1" max="10" required />
+
+          <button type="submit" class="calc-btn">Calculate CO₂</button>
+
+        </form>
+      </div>
+
+      <div class="prediction-card">
+        <h2>Food CO₂ Emission</h2>
+        <h1 id="foodCo2">0 kg</h1>
+      </div>
+
+      <div class="status-card" id="foodStatusCard">
+        <h2>Diet Status</h2>
+        <p id="foodStatus">N/A</p>
+
+        <div class="tips-box">
+          <h4>Tips:</h4>
+          <ul id="foodTips">
+            <li>Fill details to get tips</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="{{url_for('static',filename='food.js')}}"></script>
+  <script>
+    function logout() {
+      alert("Logged out successfully 🍀!");
+      window.location.href = "/";
+    }
+  </script>
+
+</body>
+
+</html>

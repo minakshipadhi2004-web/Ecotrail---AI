@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electricity Calculator</title>
+
+  <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+</head>
+
+<body>
+
+  <div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <img src="logo.jpeg" alt="logo">
+        <h2>EcoTrail AI</h2>
+      </div>
+
+      <ul class="menu">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/transport">Transport 🚗</a></li>
+        <li><a href="/food-page">Food 🍔</a></li>
+        <li class="active"><a href="/electricity">Energy 💡</a></li>
+        <li><a href="/history">History 📜</a></li>
+      </ul>
+
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <div class="header">
+        <h1>Electricity Carbon Calculator</h1>
+        <p>Enter electricity usage to calculate CO₂ emission ⚡</p>
+      </div>
+
+      <!-- Info Box -->
+      <div class="prediction-card">
+        <h2>Why Electricity Creates CO₂?</h2>
+        <p>
+          Electricity itself does not create CO₂, but electricity generation mostly
+          uses coal and fossil fuels. So higher electricity consumption increases
+          carbon emissions.
+        </p>
+      </div>
+
+      <!-- Form -->
+      <div class="transport-form-box">
+        <form id="electricityForm">
+
+          <label>Electricity Units Used (kWh)</label>
+          <input type="number" id="units" required />
+
+          <button type="submit" class="calc-btn">Calculate CO₂</button>
+          <!-- <label>Units Consumed</label>
+          <input type="number"
+          id="units"
+          placeholder="Enter units consumed "
+          required> -->
+          <!-- <label>Application Type</label>
+          <select id="applianceType">
+            <option value="AC">AC</option>
+            <option value="Fan">Fan</option>
+            <option value="Fridge">Fridge</option>
+            <option value="TV">TV</option>
+          </select>
+          <button type="submit" class="calc-btn">Calculate co2</button> -->
+
+        </form>
+      </div>
+
+      <!-- Result -->
+      <div class="prediction-card">
+        <h2>Electricity CO₂ Emission</h2>
+        <h1 id="electricityResult">0 kg</h1>
+      </div>
+
+      <!-- Status -->
+      <div class="status-card" id="energyStatusCard">
+        <h2>Energy Status</h2>
+        <p id="energyStatus">N/A</p>
+
+        <div class="tips-box">
+          <h4>Tips:</h4>
+          <ul id="energyTips">
+            <li>Fill details to get tips</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="{{url_for('static',filename='electricity.js')}}"></script>
+
+  <script>
+    function logout() {
+      alert("Logged out successfully 🍀!");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
